@@ -19,7 +19,7 @@ if ! docker version &> /dev/null; then
 fi
 
 # Build the image
-APP_NAME="gitea"
+APP_NAME="deluge"
 docker build --tag "$APP_NAME" .
 
 if confirm_action "Test image?"; then
@@ -27,16 +27,16 @@ if confirm_action "Test image?"; then
 	TMP_DIR=$(mktemp -d "/tmp/$APP_NAME-XXXXXXXXXX")
 	add_cleanup "rm -rf $TMP_DIR"
 	echo "[repository]
-ROOT        = /gitea-data/repos
+ROOT        = /deluge-data/repos
 SCRIPT_TYPE = sh
 
 [server]
 START_SSH_SERVER = true
 SSH_PORT         = 3022
-STATIC_ROOT_PATH = /usr/share/webapps/gitea
+STATIC_ROOT_PATH = /usr/share/webapps/deluge
 
 [log]
-ROOT_PATH = /var/log/gitea" > "$TMP_DIR/app.ini"
+ROOT_PATH = /var/log/deluge" > "$TMP_DIR/app.ini"
 
 	# Apply permissions, UID matches process user
 	extract_var APP_UID "./Dockerfile" "\K\d+"

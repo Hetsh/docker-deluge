@@ -22,7 +22,7 @@ update_image "library/alpine" "Alpine Linux" "false" "\d{8}"
 # Packages
 ARCH="x86_64"
 BASE_PKG_URL="https://pkgs.alpinelinux.org/package/edge"
-update_pkg "gitea" "Gitea" "true" "$BASE_PKG_URL/community/$ARCH" "(\d+\.)+\d+-r\d+"
+update_pkg "deluge" "Deluge" "true" "$BASE_PKG_URL/community/$ARCH" "(\d+\.)+\d+-r\d+"
 update_pkg "openssh" "OpenSSH" "false" "$BASE_PKG_URL/main/$ARCH" "\d+\.\d+_p\d+-r\d+"
 
 if ! updates_available; then

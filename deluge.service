@@ -1,5 +1,5 @@
 [Unit]
-Description=Gitea container
+Description=Deluge container
 After=docker.service
 Requires=docker.service
 
@@ -7,15 +7,15 @@ Requires=docker.service
 ExecStartPre=-/bin/docker create \
 			  --rm \
 			  --interactive \
-			  --name gitea \
+			  --name deluge \
 			  --publish 3022:3022 \
 			  --publish 3000:3000 \
-			  --mount type=bind,source=/etc/gitea/app.ini,target=/etc/gitea/app.ini \
-			  --mount type=bind,source=/etc/gitea/data,target=/gitea-data \
+			  --mount type=bind,source=/etc/deluge/app.ini,target=/etc/deluge/app.ini \
+			  --mount type=bind,source=/etc/deluge/data,target=/deluge-data \
 			  --mount type=bind,source=/etc/localtime,target=/etc/localtime,readonly \
-			  hetsh/gitea
-ExecStart=/bin/docker start --attach gitea
-ExecStop=/bin/docker stop gitea
+			  hetsh/deluge
+ExecStart=/bin/docker start --attach deluge
+ExecStop=/bin/docker stop deluge
 
 [Install]
 WantedBy=multi-user.target

@@ -1,5 +1,5 @@
 # Deluge
-Super small code hosting platform.
+Super small and easy to set up deluge bittorrent client.
 
 ## Running the server
 ```bash

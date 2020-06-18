@@ -16,14 +16,14 @@ source libs/docker.sh
 assert_dependency "jq"
 assert_dependency "curl"
 
-# Alpine Linux
-update_image "library/alpine" "Alpine Linux" "false" "\d{8}"
+# Debian Stable
+IMG_CHANNEL="stable"
+update_image "library/debian" "Debian" "false" "$IMG_CHANNEL-\d+-slim"
 
 # Packages
-ARCH="x86_64"
-BASE_PKG_URL="https://pkgs.alpinelinux.org/package/edge"
-update_pkg "deluge" "Deluge" "true" "$BASE_PKG_URL/community/$ARCH" "(\d+\.)+\d+-r\d+"
-update_pkg "openssh" "OpenSSH" "false" "$BASE_PKG_URL/main/$ARCH" "\d+\.\d+_p\d+-r\d+"
+PKG_URL="https://packages.debian.org/$IMG_CHANNEL/amd64"
+update_pkg "bzip2" "BZip2" "false" "$PKG_URL" "(\d+\.)+\d+-(\d+\.)+\d+~deb\d+u\d+"
+update_pkg "ca-certificates" "CA-Certificates" "false" "$PKG_URL" "\d{8}"
 
 if ! updates_available; then
 	echo "No updates available."

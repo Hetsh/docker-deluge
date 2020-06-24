@@ -11,28 +11,6 @@ docker run --detach --name deluge --publish 3022:3022 --publish 3000:3000 hetsh/
 docker stop deluge
 ```
 
-## Configuring
-Deluge is configured via its [web interface](http://localhost:3000).
-A configuration wizard will guide you through the initial setup if you run the server for the first time.
-If you want to reuse a existing configuration, it needs to contain these parameters:
-```ini
-[repository]
-ROOT        = /deluge/repos ;change this path to your repos
-SCRIPT_TYPE = sh
-
-[server]
-START_SSH_SERVER = true
-SSH_PORT         = 3022
-STATIC_ROOT_PATH = /usr/share/webapps/deluge
-
-[log]
-ROOT_PATH = /var/log/deluge
-```
-Mount the existing configuration and make sure the deluge user (id `1360`) has RW permissions:
-```bash
-docker run --mount type=bind,source=/path/to/config.ini,target=/etc/deluge/app.ini ...
-```
-
 ## Creating persistent storage
 ```bash
 STORAGE="/path/to/storage"

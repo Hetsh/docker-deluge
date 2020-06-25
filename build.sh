@@ -26,6 +26,7 @@ if confirm_action "Test image?"; then
 	# Start the test
 	docker run \
 	--rm \
+	--tty \
 	--interactive \
 	--publish 58846:58846/tcp \
 	--mount type=bind,source=/etc/localtime,target=/etc/localtime,readonly \

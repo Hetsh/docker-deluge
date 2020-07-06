@@ -5,7 +5,7 @@ RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/re
     deluge@testing=2.0.3-r5
 
 # App user
-ARG APP_UID=1364
+ARG APP_UID=1367
 ARG APP_USER="deluge"
 ARG HOME_DIR="/etc/deluged"
 RUN adduser --disabled-password --uid "$APP_UID" --home "$HOME_DIR" --gecos "$APP_USER" --shell /sbin/nologin "$APP_USER"

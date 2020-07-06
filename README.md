@@ -15,9 +15,9 @@ docker stop deluge
 ```bash
 STORAGE="/path/to/storage"
 mkdir -p "$STORAGE"
-chown -R 1360:1360 "$STORAGE"
+chown -R 1367:1367 "$STORAGE"
 ```
-`1360` is the numerical id of the user running the server (see Dockerfile).
+`1367` is the numerical id of the user running the server (see Dockerfile).
 The user must have RW access to the storage directory.
 Start the server with the additional mount flags:
 ```bash

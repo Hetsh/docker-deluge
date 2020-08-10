@@ -9,8 +9,8 @@ ExecStartPre=-/bin/docker create \
               --name deluge \
               --publish 3022:3022 \
               --publish 3000:3000 \
-              --mount type=bind,source=/etc/deluge/app.ini,target=/etc/deluge/app.ini \
-              --mount type=bind,source=/etc/deluge/data,target=/deluge-data \
+              --mount type=bind,source=/apps/deluge/app.ini,target=/etc/deluge/app.ini \
+              --mount type=bind,source=/apps/deluge/data,target=/deluge-data \
               --mount type=bind,source=/etc/localtime,target=/etc/localtime,readonly \
               hetsh/deluge
 ExecStart=/bin/docker start --attach deluge

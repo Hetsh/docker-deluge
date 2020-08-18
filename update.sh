@@ -25,7 +25,7 @@ BASE_PKG_URL="https://pkgs.alpinelinux.org/package/edge"
 update_pkg "deluge" "Deluge" "true" "$BASE_PKG_URL/testing/$ARCH" "(\d+\.)+\d+-r\d+"
 
 if ! updates_available; then
-	echo "No updates available."
+	#echo "No updates available."
 	exit 0
 fi
 

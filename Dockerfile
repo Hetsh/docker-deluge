@@ -2,7 +2,7 @@ FROM library/alpine:20201218
 RUN echo "http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk update && \
     apk add --no-cache \
-    deluge=2.0.3-r5
+    deluge=2.0.3-r6
 
 # App user
 ARG APP_UID=1367
